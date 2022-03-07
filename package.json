@@ -36,6 +36,7 @@
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
+  "eslintIgnore": ["*vue"],
   "lint-staged": {
     "*.{js,jsx,vue}": [
       "vue-cli-service lint",

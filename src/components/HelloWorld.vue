@@ -1,5 +1,11 @@
 <template>
   <div class="hello">
+    <button @click="count += 1">click</button>
+    <button 
+      @click="$emit('helloEvent', 123)"
+      data-testid="btn2"
+    >click2</button>
+    <p data-testid="count">{{count}}</p>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
