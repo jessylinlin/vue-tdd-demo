@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoFooter.vue snapshot 1`] = `
+<footer class="footer"><span data-testid="todo-count" class="todo-count"><strong>1</strong> item left</span>
+  <ul class="filters">
+    <li><a href="#/" class="">All</a></li>
+    <li><a href="#/active" aria-current="page" class="router-link-exact-active selected">Active</a></li>
+    <li><a href="#/completed" class="">Completed</a></li>
+  </ul> <button data-testid="clear-completed" class="clear-completed">Clear completed</button>
+</footer>
+`;

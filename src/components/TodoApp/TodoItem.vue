@@ -1,13 +1,25 @@
 <template>
     <li data-testid="todo-item" :class="{
-        completed: todo.done
+        completed: todo.done,
+        editing: isEditing
     }">
         <div class="view">
             <input v-model="todo.done" data-testid="todo-done" class="toggle" type="checkbox">
-            <label data-testid="todo-text">{{todo.text}}</label>
-            <button class="destroy"></button>
+            <label 
+                data-testid="todo-text"
+                @dblclick="isEditing = true"
+            >{{todo.text}}</label>
+            <button class="destroy" data-testid="delete" @click="$emit('delete-todo', todo.id)"></button>
         </div>
-        <input class="edit" value="Create a TodoMVC template">
+        <input 
+            class="edit" 
+            data-testid="todo-edit" 
+            @blur="isEditing = false" 
+            :value="todo.text"
+            v-focus="isEditing"
+            @keyup.enter="handleEditTodo"
+            @keyup.esc="handleCancelEdit"
+        >
     </li>
 </template>
 <script>
@@ -17,6 +29,31 @@ export default {
         todo: {
             type: Object,
             required: true
+        }
+    },
+    directives: {
+        focus (element, binding) {
+            if (binding.value) {
+                element.focus()
+            }
+        }
+    },
+    data() {
+        return {
+            isEditing: false
+        }
+    },
+    methods: {
+        handleEditTodo(e) {
+            this.$emit('edit-todo',{
+                id: this.todo.id,
+                text: e.target.value
+            })
+            //取消编辑状态
+            this.isEditing = false
+        },
+        handleCancelEdit() {
+            this.isEditing = false
         }
     }
 }
