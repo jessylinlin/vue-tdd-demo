@@ -1,5 +1,7 @@
 # vue-testing-demo
 
+[![codecov](https://codecov.io/gh/jessylinlin/vue-tdd-demo/branch/master/graph/badge.svg?token=P7L82O3XMO)](https://codecov.io/gh/jessylinlin/vue-tdd-demo)
+
 ## Project setup
 ```
 yarn install
